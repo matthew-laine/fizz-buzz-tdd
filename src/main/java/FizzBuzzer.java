@@ -2,17 +2,33 @@
 public class FizzBuzzer {
 
 	public String fizzBuzz(int fizzBuzzNumber) {
-		// TODO Auto-generated method stub
-		if(fizzBuzzNumber < 1) {
+		
+		String result = "";
+		
+		if(isInvalidInput(fizzBuzzNumber)) {
 			return "Invalid Input";
-		} else if(fizzBuzzNumber % 3 == 0 && fizzBuzzNumber % 5 == 0 ) {
-			return "FizzBuzz";
-		} else if(fizzBuzzNumber % 5 == 0) {
-			return "Buzz";
-		} else if(fizzBuzzNumber % 3 == 0) {
-			return "Fizz";
-		} else {
-			return Integer.toString(fizzBuzzNumber);
 		}
+		if (isDivisibleByThree(fizzBuzzNumber)) {
+			result += "Fizz";
+		}
+		if (isDivisibleByFive(fizzBuzzNumber)) {
+			result += "Buzz";
+		}
+		if (result.isEmpty()) {
+			result += fizzBuzzNumber;
+		}
+		return result ;
+	}	
+
+	private boolean isDivisibleByFive(int fizzBuzzNumber) {
+		return fizzBuzzNumber % 5 == 0;
+	}
+
+	private boolean isDivisibleByThree(int fizzBuzzNumber) {
+		return fizzBuzzNumber % 3 == 0;
+	}
+
+	private boolean isInvalidInput(int fizzBuzzNumber) {
+		return fizzBuzzNumber < 1;
 	}
 }

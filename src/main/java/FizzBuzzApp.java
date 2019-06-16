@@ -24,5 +24,7 @@ public class FizzBuzzApp {
 				System.out.println();
 			}
 		} while(gameIsOn);
+		
+		consoleInput.close();
 	}
 }
